@@ -14,10 +14,13 @@ class Decks extends Component {
     }
 
     renderItem = ({item}) => (
-        <View style={styles.item}>        
-                <Deck
-                    title={item.title}
-                    questions={item.questions}/>
+        <View style={styles.item}>      
+            <TouchableOpacity
+                onPress={() => this.props.navigation.navigate('IndividualDeck', item)}>
+                    <Deck
+                        title={item.title}
+                        questions={item.questions}/>
+            </TouchableOpacity>
         </View>
     );
 
