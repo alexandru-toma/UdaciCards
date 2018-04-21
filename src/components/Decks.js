@@ -1,36 +1,37 @@
-import React, {Component} from 'react';
-import {StyleSheet, TouchableOpacity, View, Dimensions, FlatList} from 'react-native';
-import {connect} from 'react-redux';
-import {getDecks} from '../actions/index';
-import {getAllDecks} from '../utils/api';
+import React, { Component } from 'react';
+import { StyleSheet, TouchableOpacity, View, Dimensions, FlatList } from 'react-native';
+import { connect } from 'react-redux';
+import { getDecks } from '../actions/index';
+import { getAllDecks } from '../utils/api';
 import Deck from './Deck';
 
 class Decks extends Component {
 
     componentDidMount() {
-        const {dispatch} = this.props;
+        const { dispatch } = this.props;
         getAllDecks().then(decks => dispatch(getDecks(decks)))
-            .then(() => this.setState(() => ({ready: true})));
+            .then(() => this.setState(() => ({ ready: true })));
     }
 
-    renderItem = ({item}) => (
-        <View style={styles.item}>      
-            <TouchableOpacity
-                onPress={() => this.props.navigation.navigate('IndividualDeck', item)}>
-                    <Deck
-                        title={item.title}
-                        questions={item.questions}/>
-            </TouchableOpacity>
+    renderItem = ({ item }) => ( 
+        <View style = { styles.item } >
+        <TouchableOpacity onPress = {
+            () => this.props.navigation.navigate('IndividualDeck', item)} >
+        <Deck title = { item.title }
+        questions = { item.questions }
+        /> 
+        </TouchableOpacity> 
         </View>
     );
 
     render() {
-        return (
-            <View style={styles.deck}>
-                <FlatList
-                    data={Object.values(this.props.decks).sort((a, b) => a.title > b.title)}
-                    renderItem={this.renderItem}
-                    keyExtractor={(item, index) => index}/>
+        return ( 
+            <View style = { styles.deck } >
+                <FlatList data = { Object.values(this.props.decks).sort((a, b) => a.title > b.title) }
+                renderItem = { this.renderItem }
+                keyExtractor = {
+                    (item, index) => index
+                }/> 
             </View>
         );
     }

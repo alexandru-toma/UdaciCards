@@ -1,8 +1,8 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import { StyleSheet, Text, View, TouchableOpacity, TextInput, Alert } from 'react-native'
-import {connect} from 'react-redux'
-import {addNewDeck} from '../utils/api'
-import {addDeck} from '../actions/index'
+import { connect } from 'react-redux'
+import { addNewDeck } from '../utils/api'
+import { addDeck } from '../actions/index'
 import AddNewCard from './AddNewCard';
 
 class NewDeck extends Component {
@@ -14,7 +14,7 @@ class NewDeck extends Component {
 
     addNewDeck = () => {
         const deckName = this.state.deckName;
-        const {decks} = this.props;
+        const { decks } = this.props;
 
         if (!deckName) {
             Alert.alert(
@@ -51,15 +51,15 @@ class NewDeck extends Component {
     render() {
         return (
             <View style={style.container}>
-                <Text 
-                    style={{fontSize: 16}}>
+                <Text
+                    style={{ fontSize: 16 }}>
                     What is the title of your new deck ?
                 </Text>
 
                 <TextInput
                     value={this.state.deckName}
                     style={style.textInput}
-                    onChangeText={deckName => this.setState({deckName})}/>
+                    onChangeText={deckName => this.setState({ deckName })} />
 
                 <TouchableOpacity
                     onPress={this.addNewDeck}
@@ -67,7 +67,6 @@ class NewDeck extends Component {
                     <Text style={style.submitText}>SUBMIT</Text>
 
                 </TouchableOpacity>
-
             </View>
         );
     }
