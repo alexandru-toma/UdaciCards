@@ -13,7 +13,7 @@ No backend server required for the application, the data in handled with Async S
 This project was bootstrapped with Create React Native App, and utilizes Expo.
 
 ## Contributing
-This repository is an initial version of the MyReads application, and represents a personal project. Therefore, I most likely will not accept pull requests.
+This repository is an initial version of the Udacicards application, and represents a personal project. Therefore, I most likely will not accept pull requests.
 
 ## License
 This is part of Udacity React Nanodegree, so please refer to [Udacity Terms of Service](https://eu.udacity.com/legal) for further information.
