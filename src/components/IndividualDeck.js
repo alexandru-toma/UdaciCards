@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import Deck from './Deck'
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 import { getDecks } from '../actions/index'
 import { getAllDecks } from '../utils/api'
 

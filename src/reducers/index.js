@@ -9,12 +9,12 @@ function decks(state = {}, action) {
             return { ...state, ...action.deck };
 
         case Types.ADD_QUESTION:
-        const {title, questions, question, answer} = action.payload;
-            const newQuestions = JSON.parse(JSON.stringify(questions)).concat([ { question, answer } ]);
+            const { title, questions, question, answer } = action.payload;
+            const newQuestions = JSON.parse(JSON.stringify(questions)).concat([{ question, answer }]);
 
             return {
                 ...state,
-                [title]: {...state[title], questions: newQuestions},
+                [title]: { ...state[title], questions: newQuestions },
             };
         default:
             return state;

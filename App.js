@@ -27,14 +27,14 @@ const Tabs = TabNavigator({
         screen: Decks,
         navigationOptions: {
             tabBarLabel: 'All Decks',
-            tabBarIcon: ({ tintColor }) => <Ionicons name='ion-ios-home' size={30} color={tintColor} />
+            tabBarIcon: ({ tintColor }) => <Ionicons name='ios-home-outline' size={30} color={tintColor} />
         },
     },
     NewDeck: {
         screen: NewDeck,
         navigationOptions: {
             tabBarLabel: 'New Deck',
-            tabBarIcon: ({ tintColor }) => <Ionicons name='ion-ios-plus-outline' size={30} color={tintColor} />
+            tabBarIcon: ({ tintColor }) => <Ionicons name='ios-add-circle-outline' size={30} color={tintColor} />
         },
     },
 });
