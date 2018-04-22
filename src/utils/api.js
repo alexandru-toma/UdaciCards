@@ -10,13 +10,17 @@ export function addNewDeck(deck) {
     return AsyncStorage.mergeItem(DECKS_STORAGE_KEY, JSON.stringify(deck))
 }
 
-export function addNewCard({card, deckName}) {
+export function addNewCard({ question, answer, title }) {
     return AsyncStorage.getItem(DECKS_STORAGE_KEY, (err, result) => {
         let decks = JSON.parse(result);
 
-        if (decks[deckName] && decks[deckName]['questions']) {
-            decks[deckName]['questions'].push(card)
+        if (decks[title] && decks[title]['questions']) {
+            decks[title]['questions'].push({ question, answer })
         }
         AsyncStorage.mergeItem(DECKS_STORAGE_KEY, JSON.stringify(decks));
     });
+}
+
+export function resetAsyncStorage() {
+    return AsyncStorage.clear()
 }

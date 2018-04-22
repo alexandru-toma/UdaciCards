@@ -15,7 +15,6 @@ class AddNewCard extends Component {
     addNewCard = () => {
         const { question, answer } = this.state;
         const { title, questions } = this.props.navigation.state.params;
-        const params = { title, questions, question, answer };
 
         if (!question) {
             Alert.alert(
@@ -29,9 +28,10 @@ class AddNewCard extends Component {
             )
         }
         else {
-            const newCard = { question, answer }
-            this.props.dispatch(addCard(params));
-            addNewCard({ newCard, deckName: title });
+            const card = { question, answer }
+            const payload = { title, questions, question, answer };
+            this.props.dispatch(addCard(payload));
+            addNewCard({ question, answer, title });
 
             Alert.alert(
                 'Successful', 'Card Added',
@@ -52,12 +52,12 @@ class AddNewCard extends Component {
     render() {
         return (
             <View style={style.container}>
-                <TextInput>Question:</TextInput>
+                <TextInput style={style.label}>Question :</TextInput>
                 <TextInput
                     value={this.state.question}
                     style={style.input}
                     onChangeText={question => this.setState({ question })} />
-                <TextInput>Answer:</TextInput>
+                <TextInput style={style.label}>Answer :</TextInput>
                 <TextInput
                     value={this.state.answer}
                     style={style.input}
@@ -65,16 +65,13 @@ class AddNewCard extends Component {
 
                 <TouchableOpacity
                     onPress={this.addNewCard}
-                    style={style.submitButton}>
-                    <Text style={style.submitText}>SUBMIT</Text>
-
+                    style={style.button}>
+                    <Text style={style.buttonText}>Submit</Text>
                 </TouchableOpacity>
             </View>
         );
     }
 }
-
-
 
 const style = StyleSheet.create({
     container: {
@@ -86,19 +83,26 @@ const style = StyleSheet.create({
         width: 300,
         height: 56,
         padding: 12,
+        borderRadius: 5,
         borderWidth: 1,
-        borderColor: '#7f7f7f',
+        borderColor: 'black',
         margin: 16
     },
-    submitButton: {
-        backgroundColor: '#000',
-        padding: 12,
-        height: 44,
+    button: {
+        padding: 10,
+        backgroundColor: 'black',
+        alignSelf: 'center',
+        borderRadius: 5,
+        margin: 20,
     },
-    submitText: {
-        color: '#fff',
-        fontSize: 22,
+    buttonText: {
+        color: 'white',
+        fontSize: 20,
+    },
+    label: {
+        fontSize: 16,
         textAlign: 'center',
+        marginTop: 5,
     },
 });
 

@@ -64,7 +64,7 @@ class NewDeck extends Component {
                 <TouchableOpacity
                     onPress={this.addNewDeck}
                     style={style.submitButton}>
-                    <Text style={style.submitText}>SUBMIT</Text>
+                    <Text style={style.submitText}>Sumbit</Text>
 
                 </TouchableOpacity>
             </View>
@@ -88,14 +88,15 @@ const style = StyleSheet.create({
         margin: 24,
     },
     submitButton: {
-        backgroundColor: '#000',
-        padding: 8,
-        height: 30,
+        padding: 10,
+        backgroundColor: 'black',
+        alignSelf: 'center',
+        borderRadius: 5,
+        margin: 20,
     },
     submitText: {
-        textAlign: 'center',
-        color: '#fff',
-        fontSize: 16,
+        color: 'white',
+        fontSize: 20,
     },
 });
 

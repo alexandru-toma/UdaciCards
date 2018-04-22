@@ -10,7 +10,7 @@ export const addDeck = deck => ({
     deck,
 });
 
-export const addCard = params => ({
+export const addCard = payload => ({
     type: Types.ADD_QUESTION,
-    params,
+    payload,
 });
