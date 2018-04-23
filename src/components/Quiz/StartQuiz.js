@@ -15,8 +15,6 @@ class StartQuiz extends Component {
     }
 
     componentWillMount() {
-        clearLocalNotification()
-            .then(setLocalNotification)
         //resetAsyncStorage(); -- for testing
     }
 
@@ -41,6 +39,8 @@ class StartQuiz extends Component {
     }
 
     goBack = () => {
+        clearLocalNotification()
+            .then(setLocalNotification);
         this.props.navigation.goBack();
     }
 

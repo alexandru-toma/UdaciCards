@@ -16,12 +16,12 @@ class AddNewCard extends Component {
         const { question, answer } = this.state;
         const { title, questions } = this.props.navigation.state.params;
 
-        if (!question) {
+        if (!question.trim()) {
             Alert.alert(
                 'Empty field',
                 'Question cannot be empty!'
             );
-        } else if (!answer) {
+        } else if (!answer.trim()) {
             Alert.alert(
                 'Empty field',
                 'Answer cannot be empty!'

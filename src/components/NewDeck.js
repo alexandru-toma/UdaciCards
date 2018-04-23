@@ -16,7 +16,7 @@ class NewDeck extends Component {
         const deckName = this.state.deckName;
         const { decks } = this.props;
 
-        if (!deckName) {
+        if (!deckName.trim()) {
             Alert.alert(
                 'Empty deck name',
                 'The deck name cannot be empty!'
