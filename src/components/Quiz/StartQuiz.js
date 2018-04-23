@@ -16,7 +16,7 @@ class StartQuiz extends Component {
 
     componentWillMount() {
         clearLocalNotification()
-        .then(setLocalNotification)
+            .then(setLocalNotification)
         //resetAsyncStorage(); -- for testing
     }
 
@@ -103,7 +103,6 @@ class StartQuiz extends Component {
                                                 style={[styles.button, { backgroundColor: 'red' }]}>
                                                 <Text style={styles.buttonText}>Incorrect</Text>
                                             </TouchableOpacity>
-
                                         </View>
                                     </View>
                                 </View>
