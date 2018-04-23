@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import QuizFinished from './QuizFinished';
 import { resetAsyncStorage } from '../../utils/api'
+import {
+    clearLocalNotification,
+    setLocalNotification
+  } from '../../utils/helpers'
 
 class StartQuiz extends Component {
     state = {
@@ -11,6 +15,8 @@ class StartQuiz extends Component {
     }
 
     componentWillMount() {
+        clearLocalNotification()
+        .then(setLocalNotification)
         //resetAsyncStorage(); -- for testing
     }
 

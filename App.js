@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {Component} from 'react'
 import { StyleSheet, Text, View, StatusBar } from 'react-native'
 import Deck from './src/components/Deck'
 import Decks from './src/components/Decks'
@@ -12,6 +12,7 @@ import IndividualDeck from './src/components/IndividualDeck'
 import StartQuiz from './src/components/Quiz/StartQuiz'
 import AddNewCard from './src/components/AddNewCard'
 import { Constants } from 'expo'
+import { setLocalNotification } from './src/utils/helpers'
 
 
 function UdaciCardStatusBar({ backgroundColor, ...props }) {
@@ -67,7 +68,10 @@ const AppNavigator = StackNavigator({
     },
 });
 
-export default class App extends React.Component {
+export default class App extends Component {
+    componentDidMount() {
+        setLocalNotification()
+      }
     render() {
         return <Provider store={createStore(reducer)}>
             <View style={{ flex: 1 }}>
